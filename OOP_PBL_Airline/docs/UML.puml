@@ -1,0 +1,81 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+abstract class Flight {
+  # flightNumber : string
+  # origin : string
+  # destination : string
+  # departureDateTime : string
+  # totalSeats : int
+  # availableSeats : int
+  + calculateBaseFare() : double
+  + displayDetails()
+  + reserveSeat()
+  + releaseSeat()
+}
+
+class DomesticFlight {
+  - routeFactor : double
+  + calculateBaseFare() : double
+}
+
+class InternationalFlight {
+  - visaRequired : bool
+  + calculateBaseFare() : double
+}
+
+class CharterFlight {
+  - contractHolder : string
+  + calculateBaseFare() : double
+}
+
+abstract class Passenger {
+  # passengerId : string
+  # name : string
+  # phone : string
+  + baggageAllowance() : int
+  + loyaltyMultiplier() : double
+  + cancellationPercentage() : double
+}
+
+class EconomyPassenger
+class BusinessPassenger
+class FirstClassPassenger
+
+class Ticket {
+  - ticketId : string
+  - passengerId : string
+  - flightNumber : string
+  - seatNumber : int
+  - farePaid : double
+  - status : BookingStatus
+  + cancel()
+}
+
+class Airline {
+  - flights : map<string, unique_ptr<Flight>>
+  - passengers : map<string, unique_ptr<Passenger>>
+  - tickets : vector<Ticket>
+  + addFlight()
+  + removeFlight()
+  + bookTicket()
+  + cancelTicket()
+  + save()
+  + load()
+}
+
+Flight <|-- DomesticFlight
+Flight <|-- InternationalFlight
+Flight <|-- CharterFlight
+
+Passenger <|-- EconomyPassenger
+Passenger <|-- BusinessPassenger
+Passenger <|-- FirstClassPassenger
+
+Airline o-- Flight
+Airline o-- Passenger
+Airline o-- Ticket
+
+Ticket ..> Flight
+Ticket ..> Passenger
+@enduml

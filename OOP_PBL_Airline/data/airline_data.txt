@@ -1,0 +1,2 @@
+# Delete this file to regenerate the built-in sample dataset.
+# The application writes its own persistence format when it exits.
