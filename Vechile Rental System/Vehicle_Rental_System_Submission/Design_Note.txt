@@ -1,0 +1,61 @@
+VEHICLE RENTAL SYSTEM - DESIGN NOTE
+
+1. Vehicle Types
+
+I used a base class called Vehicle and three derived classes: Car, Motorbike and Truck.
+
+I chose inheritance because a car, motorbike and truck are all types of vehicles. The common information such as ID, model, daily rate and availability is kept in the Vehicle class.
+
+The vehicle types also have their own properties. For example, a car has seats, a motorbike has engine capacity and a truck has payload capacity.
+
+Inheritance is useful here because the vehicles also have different pricing rules.
+
+2. Pricing Logic
+
+I used a virtual calculateCost() function in the Vehicle class.
+
+Each child class implements its own version.
+
+A Car uses the normal calculation:
+
+daily rate x number of days
+
+A Truck has a 20% surcharge.
+
+A Motorbike gets a 10% discount when it is rented for more than 7 days.
+
+This keeps the pricing logic inside the vehicle types instead of putting all the rules into one large function.
+
+3. Rental Records
+
+I created a separate Rental class to store information about each rental.
+
+RentalSystem keeps all rental records. When a vehicle is returned, the rental is not deleted. It is simply marked as closed.
+
+The Customer class stores the customer information and whether the customer currently has an active rental.
+
+4. Classes Used
+
+The program uses these classes:
+
+- Vehicle
+- Car
+- Motorbike
+- Truck
+- Customer
+- Rental
+- RentalSystem
+
+I did not create a separate Fleet class because RentalSystem can manage the vehicle collection directly. Adding another class was not necessary for the requirements.
+
+5. Runtime Polymorphism
+
+Runtime polymorphism is used in the Rental constructor:
+
+    cost = vehicle->calculateCost(days);
+
+The vehicle variable is a Vehicle pointer, but it can point to a Car, Motorbike or Truck.
+
+Because calculateCost() is virtual, C++ calls the correct version depending on the actual vehicle type.
+
+This is useful because the rental price is different for the different vehicle types.

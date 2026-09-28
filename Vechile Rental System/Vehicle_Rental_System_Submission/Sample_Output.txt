@@ -1,0 +1,34 @@
+Vehicle Rental System
+
+--- Vehicle List ---
+101 - Car - Toyota Corolla - $50 per day - Available
+   Seats: 5
+102 - Motorbike - Honda 150 - $25 per day - Available
+   Engine: 150 CC
+103 - Truck - Isuzu Truck - $100 per day - Available
+   Payload: 5 tonnes
+
+--- Customers ---
+Ali and Ahmed registered successfully.
+
+--- First Rental ---
+Rental successful for Ali.
+
+--- Second Rental ---
+Rental successful for Ahmed.
+
+--- Testing Rented Vehicle ---
+Customer already has an active rental.
+
+--- Returning Vehicle ---
+Vehicle returned successfully.
+
+==============================
+       RENTAL SUMMARY
+==============================
+Available vehicles: 2
+Rented vehicles: 1
+
+Active Rentals:
+Rental 2 | Customer: Ahmed | Vehicle: Honda 150 | Days: 10 | Cost: $225.00 | Active
+==============================

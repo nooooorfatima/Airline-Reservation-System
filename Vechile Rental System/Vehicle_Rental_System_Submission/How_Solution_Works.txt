@@ -1,0 +1,47 @@
+HOW THE SOLUTION WORKS
+
+1. The program starts by creating a RentalSystem object.
+
+2. Three vehicles are added:
+   - Toyota Corolla (Car)
+   - Honda 150 (Motorbike)
+   - Isuzu Truck (Truck)
+
+3. Two customers are registered:
+   - Ali
+   - Ahmed
+
+4. Ali rents the Toyota Corolla for 3 days.
+   The cost is:
+   50 x 3 = $150
+
+5. Ahmed rents the Honda 150 for 10 days.
+   Normal cost:
+   25 x 10 = $250
+   Since the rental is longer than 7 days, a 10% discount is applied:
+   $250 x 0.90 = $225
+
+6. The program tries to give Ahmed the Toyota Corolla while it is already rented by Ali.
+   The system rejects the rental and prints:
+   "Vehicle is already rented."
+
+7. Ali returns the Toyota Corolla.
+   The vehicle becomes available again and Ali's rental record is changed from Active to Closed.
+
+8. Finally, the program prints the summary.
+   At this point:
+   - Toyota Corolla = Available
+   - Honda 150 = Rented
+   - Isuzu Truck = Available
+   - Available vehicles = 2
+   - Rented vehicles = 1
+
+   The active rental shown in the final summary is Ahmed's motorbike rental.
+
+OOP FEATURES USED
+
+- Encapsulation: important data members are private.
+- Inheritance: Car, Motorbike and Truck inherit from Vehicle.
+- Abstraction: Vehicle defines common behavior and has pure virtual functions.
+- Polymorphism: calculateCost() is virtual and the correct vehicle-specific function is called at runtime.
+- Composition/association: RentalSystem manages vehicles, customers and rental records.
